@@ -57,7 +57,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(3f, 6f));
         StartCoroutine(CreatePowerup());
     }
-
     void CreateSky()
     {
         for (int i = 0; i < 30; i++)

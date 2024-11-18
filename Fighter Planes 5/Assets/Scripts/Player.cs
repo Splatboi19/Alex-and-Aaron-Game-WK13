@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public GameObject explosion;
     public GameObject thruster;
     public GameObject shield;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -103,6 +104,7 @@ public class Player : MonoBehaviour
         hasShield = false;
         shield.gameObject.SetActive(false);
         gameManager.UpdatePowerupText("");
+        gameManager.PlayPowerDown();
     }
 
     IEnumerator SpeedPowerDown()
@@ -111,6 +113,7 @@ public class Player : MonoBehaviour
         speed = 6f;
         thruster.gameObject.SetActive(false);
         gameManager.UpdatePowerupText("");
+        gameManager.PlayPowerDown();
     }
 
     IEnumerator ShootingPowerDown()
@@ -118,7 +121,10 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(3f);
         shooting = 1;
         gameManager.UpdatePowerupText("");
+        gameManager.PlayPowerDown();
     }
+
+    
 
     private void OnTriggerEnter2D(Collider2D whatIHit)
     {
